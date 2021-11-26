@@ -1,6 +1,7 @@
 import React from "react";
 import { NextPage } from "next";
 import Link from "next/link";
+import logo from "../public/favicon.ico";
 
 interface HProps {
   children: any;
@@ -16,21 +17,13 @@ const Layout: NextPage<HProps> = ({ children }) => {
           </Link>
         </div>
         <div>
-          <span>
-            <Link href="/">
-              <a>ru</a>
-            </Link>
-          </span>
-          <span>
-            <Link href="/Lang">
+          <span className={"mx-2"}>
+            <Link href="/lang">
               <a>eng</a>
             </Link>
           </span>
+          <span className={"mx-2"}>ru</span>
         </div>
-        {/*<select>*/}
-        {/*  <option>Русский</option>*/}
-        {/*  <option>Английский</option>*/}
-        {/*</select>*/}
       </div>
       {children}
       <style jsx>{`
@@ -46,6 +39,7 @@ const Layout: NextPage<HProps> = ({ children }) => {
           background-color: inherit;
         }
         option {
+          background-image: url(${logo});
           color: black;
         }
       `}</style>

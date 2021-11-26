@@ -1,7 +1,6 @@
-import { NextPage } from "next";
+import { GetStaticPropsContext, NextPage } from "next";
 import Link from "next/link";
 import Head from "next/head";
-import { GetStaticProps } from "next";
 
 interface IProps {
   data: {
@@ -50,10 +49,11 @@ const Index: NextPage<IProps> = ({ data }) => {
 
 export default Index;
 
-export const getStaticProps: GetStaticProps = async () => {
-  const response = await fetch(
-    `https://news.itmo.ru/api/news/list/?ver=2.0&language_id=1&lead=1&per_page=9`
-  );
+export const getStaticProps = async (context: GetStaticPropsContext) => {
+  const id = context.locale === "ru" ? 1 : 2;
+
+  const URL: string = `https://news.itmo.ru/api/news/list/?ver=2.0&language_id=${id}&lead=1&per_page=9`;
+  const response = await fetch(URL);
   const data = await response.json();
 
   return {

@@ -50,9 +50,9 @@ const Lang: NextPage<IProps> = ({ data }) => {
 
 export default Lang;
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetStaticProps = async (context) => {
   const response = await fetch(
-    "https://news.itmo.ru/api/news/list/?ver=2.0&language_id=2&lead=1&per_page=9"
+    `https://news.itmo.ru/api/news/list/?ver=2.0&language_id=2&lead=1&per_page=9`
   );
   const data = await response.json();
   return {
