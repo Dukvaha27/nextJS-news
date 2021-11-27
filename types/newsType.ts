@@ -5,5 +5,7 @@ export interface NewsType {
   image_small: string;
   title: string;
   date: string;
+  image:string;
   parent_category: { category_title: string };
 }
+
