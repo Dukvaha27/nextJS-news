@@ -7,10 +7,9 @@ interface NProps {
   data: {
     news: NewsType[];
   };
-  locale: string;
 }
 
-const News = ({ data, locale }: NProps) => {
+const News = ({ data }: NProps) => {
   const router = useRouter();
 
   const news = data.news.find(
@@ -20,6 +19,7 @@ const News = ({ data, locale }: NProps) => {
   const date = news!.date.split(" ")[0];
   const time = news!.date.split(" ")[1];
   const text = ReactHtmlParser(news!.lead);
+
   return (
     <>
       <main className="mt-10">
@@ -61,12 +61,13 @@ export default News;
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { locale } = context;
-  let page = locale === "en" ? 2 : 1;
+  const language_id = locale === "en" ? 2 : 1;
 
-  const API = `https://news.itmo.ru/api/news/list/?ver=2.0&language_id=${page}&lead=1&per_page=9`;
+  const API = `https://news.itmo.ru/api/news/list/?ver=2.0&language_id=${language_id}&lead=1&per_page=9`;
   const response = await fetch(API);
   const data = await response.json();
+
   return {
-    props: { data, locale },
+    props: { data },
   };
 }

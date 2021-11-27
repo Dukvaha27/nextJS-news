@@ -32,7 +32,7 @@ const Index = ({ data }: IProps) => {
                       alt="img"
                       className="w-full h-auto object-cover rounded-t-lg"
                     />
-                    <div className="md:h-48 w-full p-4 justify-start flex flex-col">
+                    <div className="md:h-52 w-full p-4 justify-start flex flex-col">
                       <h6 className="border-b-2 text-1xl">{date}</h6>
                       <p className="my-4 items-center">{news.title}</p>
                     </div>

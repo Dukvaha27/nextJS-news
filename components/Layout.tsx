@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { NextPage } from "next";
-import Link from "next/link";
 import Image from "next/image";
 import itmoLogo from "../public/itmo_logo.svg";
 import { useRouter } from "next/router";
@@ -29,7 +28,6 @@ const Layout: NextPage<HProps> = ({ children }) => {
         </div>
         <select
           defaultValue={lang}
-          value={lang}
           onChange={handleChangeLang}
           style={{ backgroundColor: "inherit", color: "white" }}
         >
