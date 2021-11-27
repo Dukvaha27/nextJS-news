@@ -16,14 +16,14 @@ const Index = ({ data }: IProps) => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <div className="container w-4/5 mx-auto">
-        <h2 className="font-bold text-2xl my-5">Новости и события</h2>
+        <h2 className="font-bold text-2xl mt-5">Новости и события</h2>
         <div className="flex flex-wrap justify-between items-start">
           {data.news.map((news) => {
             const date = new Date(news.date.split(" ")[0]).toDateString();
             return (
               <div
                 key={news.id}
-                className="my-5 w-full md:w-72 justify-center shadow-md rounded-lg flex flex-col"
+                className="my-5 w-full md:w-72 justify-center shadow-md rounded-lg flex "
               >
                 <Link href={`/news/${news.id}`}>
                   <a>

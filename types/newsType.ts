@@ -1,4 +1,4 @@
-export interface NewsType {
+export type NewsType = {
   id: number;
   lead: string;
   image_big: string;
@@ -6,6 +6,9 @@ export interface NewsType {
   title: string;
   date: string;
   image:string;
-  parent_category: { category_title: string };
+  parent_category:categoryType;
 }
 
+type categoryType = {
+  category_title:string
+}
