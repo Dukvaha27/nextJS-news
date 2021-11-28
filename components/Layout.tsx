@@ -9,12 +9,13 @@ interface HProps {
 }
 
 const Layout: NextPage<HProps> = ({ children }) => {
-  const [lang, setlang] = useState("");
   const router = useRouter();
+  const [lang, setlang] = useState<string>("/ru");
 
   const handleChangeLang = (e: { target: { value: string } }) => {
     setlang(e.target.value);
     router.push(e.target.value);
+    router.basePath = e.target.value;
   };
 
   return (
@@ -31,10 +32,18 @@ const Layout: NextPage<HProps> = ({ children }) => {
           onChange={handleChangeLang}
           style={{ backgroundColor: "inherit", color: "white" }}
         >
-          <option disabled={lang === '/ru'} className={"text-black"} value="/ru">
+          <option
+            disabled={lang === "/ru"}
+            className={"text-black"}
+            value="/ru"
+          >
             Русский
           </option>
-          <option disabled={lang === '/en'} className={"text-black"} value="/en">
+          <option
+            disabled={lang === "/en"}
+            className={"text-black"}
+            value="/en"
+          >
             Английский
           </option>
         </select>

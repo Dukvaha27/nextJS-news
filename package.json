@@ -4,9 +4,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start -p $PORT",
-    "lint": "next lint",
-    "heroku-postbuild": "npm run build"
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
     "@lingui/react": "^3.12.1",
@@ -21,7 +20,6 @@
     "tailwindcss": "^2.2.19"
   },
   "devDependencies": {
-    "@svgr/webpack": "^5.5.0",
     "@types/node": "^16.11.7",
     "@types/react": "^17.0.35",
     "@types/react-html-parser": "^2.0.2",
